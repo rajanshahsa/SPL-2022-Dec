@@ -57,13 +57,13 @@ export class AppComponent {
     this.getPlayers();
     this.loginForm = this.fb.group({
       email: [
-        'rajan@solutionanalysts.com',
+        '',
         Validators.compose([
           Validators.required,
           Validators.pattern(RegexEnum.email),
         ]),
       ],
-      password: ['Abc@123', [Validators.required]],
+      password: ['', [Validators.required]],
     });
   }
 

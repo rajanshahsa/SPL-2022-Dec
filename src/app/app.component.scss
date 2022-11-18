@@ -1,0 +1,201 @@
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  position: relative;
+  height: 100vh;
+  background-color: #f7f7f7;
+  background-image: url("../assets/img/cri.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  font-family: "League Spartan", sans-serif;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.container .form {
+  width: 100%;
+  padding: 1em;
+  margin-bottom: 2em;
+  background-color: #fff;
+  box-shadow: 2px 2px 4px 2px #0002;
+  border-radius: 0.5em;
+  display: flex;
+}
+
+.form button {
+  cursor: pointer;
+  border: none;
+  outline: none;
+  border-radius: 3em;
+  font-size: 1em;
+  width: 15em;
+  padding: 0.5em;
+  margin: 0 0.5em;
+  font-weight: 600;
+  color: #0c0d11;
+  background-color: #20c578;
+  transition: all 0.4s ease;
+}
+.form button:hover {
+  background-color: #19b86e;
+  font-size: 1.1rem;
+}
+.form button:disabled {
+  color: #0c0d1188;
+  background-color: #64e9ab;
+}
+.form button:active {
+  background-color: #108d53;
+}
+
+/*  Player style  */
+
+.player {
+  width: 100%;
+  height: 100%;
+  padding: 2em;
+  background-color: #fff;
+  border: 2px solid black;
+  border-radius: 0.5em;
+}
+.name {
+  font-size: 3em;
+  font-weight: 600;
+}
+.currentPrice {
+  float: right;
+  font-size: 3em;
+  font-weight: 600;
+}
+.spec {
+  padding: 0.5em 0;
+  font-size: 1.4em;
+}
+.batting-style,
+.bowling-style {
+  flex: 0 1 22em;
+  padding: 0.5em;
+  margin: 1em 0;
+  color: black;
+  font-size: 22px;
+  font-weight: 600;
+  border-radius: 0.5em;
+  display: flex;
+  justify-content: space-between;
+}
+.batting-style {
+  background-color: #ffa263;
+}
+.bowling-style {
+  background-color: #ffa263;
+}
+.style {
+  padding: 0 1em;
+}
+.rating {
+  width: 3em;
+  display: flex;
+  justify-content: center;
+  font-size: 1.2em;
+}
+.rating span {
+  font-weight: 600;
+  padding-right: 0.3em;
+}
+.rating svg {
+  fill: yellow;
+  width: 1em;
+  height: 1em;
+}
+.tags {
+  padding: 0.5em 0;
+  display: flex;
+}
+.tags div {
+  margin-right: 1em;
+  padding: 0.5em 1em;
+  background-color: #fff;
+  box-shadow: 2px 2px 2px 2px #b3b4b6;
+  font-weight: 600;
+  font-size: 20px;
+  border-radius: 1em;
+}
+.auction {
+  display: flex;
+  justify-content: space-between;
+}
+.auction div {
+  cursor: pointer;
+  font-size: 1.4em;
+  text-align: center;
+  color: white;
+  background-color: #4e4e4e;
+  border-radius: 0.5em;
+  flex: 0 1 8em;
+  padding: 0.2em;
+  margin: 0.5em 0;
+}
+.auction .btn-sold {
+  background-color: green;
+  font-weight: 700;
+  letter-spacing: 1px;
+  border: 1px solid black;
+  transition: all 0.3s ease;
+}
+.auction .btn-unsold {
+  background-color: red;
+  font-weight: bold;
+  letter-spacing: 1px;
+  border: 1px solid black;
+  transition: all 0.3s ease;
+}
+.auction .btn-sold:hover {
+  background-color: #016b01;
+  font-size: 24px;
+}
+.auction .btn-unsold:hover {
+  background-color: #df0000;
+  font-size: 24px;
+}
+
+/* list style  */
+.list-data {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 2em;
+}
+.list-data {
+  display: none;
+}
+.list-txt {
+  font-size: 2em;
+  padding: 10px 0;
+}
+.list-item {
+  font-size: 1em;
+  padding: 0.2em 0;
+}
+.btn-close {
+  cursor: pointer;
+  position: fixed;
+  font-size: 2em;
+  top: 0;
+  right: 0;
+  width: 2em;
+  height: 2em;
+  color: white;
+  text-align: center;
+  line-height: 2em;
+  margin: 1em;
+  background-color: red;
+}

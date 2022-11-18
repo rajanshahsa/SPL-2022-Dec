@@ -79,6 +79,10 @@ export class AppComponent {
       this.teamName = name;
       this.ownPlayer = player.data;
       this.isLoggedin = true;
+      clearInterval(this.timer);
+      this.timer = setInterval(() => {
+        this.getOwnPlayer(teamId);
+      }, 1000);
     }
   }
   async getPlayers() {
@@ -179,18 +183,20 @@ export class AppComponent {
           response.data.name
         );
         if (response.data.teamId) {
-          const player: any = await this.playerService.getOwnPlayer(
-            response.data.teamId
-          );
+          this.getOwnPlayer(response.data.teamId);
           this.teamName = response.data.name;
-          this.ownPlayer = player.data;
-        }else{
+        } else {
           this.isAdmin = true;
         }
 
         this.isLoggedin = true;
       }
     }
+  }
+
+  async getOwnPlayer(teamId: any) {
+    const player: any = await this.playerService.getOwnPlayer(teamId);
+    this.ownPlayer = player.data;
   }
 
   async signOut() {

@@ -11,7 +11,9 @@ export const constants = {
   NO_INTERNET_CONNECTION_MSG: 'No Internet Connection',
   LOCAL_TIME_FORMAT: 'YYYY-MM-DD hh:mm A',
   DATE_FORMAT: 'DD/MM/YYYY',
-  DATE_FORMAT_DD_MM_YYY: 'DD-MM-YYYY'
+  DATE_FORMAT_DD_MM_YYY: 'DD-MM-YYYY',
+  TWELEVE_HOUR_TIME_FORMAT: 'hh:mm A',
+  HOURS_MIN_FORMAT: 'HH:mm',
 };
 
 export const LOCAL_STORAGE_KEYS = {
@@ -24,7 +26,12 @@ export const LOCAL_STORAGE_KEYS = {
   COLOURS: 'colours',
   SPECIFICATIONS: 'specifications',
   FEATURES: 'features',
-  DEALERSHIP_LOCATION_TYPES: 'dealershipLocationTypes'
+  DEALERSHIP_LOCATION_TYPES: 'dealershipLocationTypes',
+  ID: 'Id',
+  TEAMID: 'TeamId',
+  EMAILID: 'EmailId',
+  Password: 'Password',
+  TEAMNAME: 'TeamName',
 };
 
 export enum INPUTTYPES {

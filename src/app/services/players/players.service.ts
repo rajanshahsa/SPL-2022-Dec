@@ -22,4 +22,7 @@ export class PlayersService {
     return this.apiService.post(`/players/${id}`,playerData, false);
   }
 
+  async getOwnPlayer(id:any) {
+    return this.apiService.get(`/players/team/${id}`, false);
+  }
 }

@@ -78,7 +78,6 @@ export class AppComponent {
       LOCAL_STORAGE_KEYS.USERTYPE
     );
     if (teamId) {
-      debugger;
       const player: any = await this.playerService.getOwnPlayer(teamId);
       this.teamName = name;
       this.ownPlayer = player.data;

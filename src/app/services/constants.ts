@@ -32,6 +32,7 @@ export const LOCAL_STORAGE_KEYS = {
   EMAILID: 'EmailId',
   Password: 'Password',
   TEAMNAME: 'TeamName',
+  USERTYPE: 'userType',
 };
 
 export enum INPUTTYPES {

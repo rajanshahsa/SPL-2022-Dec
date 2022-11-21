@@ -17,7 +17,7 @@ import { RegexEnum } from './services/regex-enum';
 export class AppComponent {
   title = 'SPL-2022-Dec';
   isLoggedin = false;
-  isAdmin = false;
+  isAdmin: any = false;
   ownPlayer: any;
   teamName: any;
   player: any = {
@@ -74,11 +74,16 @@ export class AppComponent {
     const name = await this.localStorageService.getDataFromIndexedDB(
       LOCAL_STORAGE_KEYS.TEAMNAME
     );
+    const admin = await this.localStorageService.getDataFromIndexedDB(
+      LOCAL_STORAGE_KEYS.USERTYPE
+    );
     if (teamId) {
+      debugger;
       const player: any = await this.playerService.getOwnPlayer(teamId);
       this.teamName = name;
       this.ownPlayer = player.data;
       this.isLoggedin = true;
+      this.isAdmin = admin !== 'owner';
       clearInterval(this.timer);
       this.timer = setInterval(() => {
         this.getOwnPlayer(teamId);
@@ -157,7 +162,7 @@ export class AppComponent {
     if (this.loginForm.valid) {
       let obj = this.loginForm.getRawValue();
       const response: any = await this.authService.login(obj);
-      if (response) {
+      if (response.data !== false) {
         await this.localStorageService.setDataInIndexedDB(
           LOCAL_STORAGE_KEYS.ID,
           response.data.id
@@ -182,9 +187,14 @@ export class AppComponent {
           LOCAL_STORAGE_KEYS.TEAMNAME,
           response.data.name
         );
-        if (response.data.teamId) {
+        await this.localStorageService.setDataInIndexedDB(
+          LOCAL_STORAGE_KEYS.USERTYPE,
+          response.data.userType
+        );
+        if (response.data.userType === 'owner') {
           this.getOwnPlayer(response.data.teamId);
           this.teamName = response.data.name;
+          this.isAdmin = false;
         } else {
           this.isAdmin = true;
         }

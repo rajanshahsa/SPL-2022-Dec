@@ -1,6 +1,6 @@
 <body *ngIf="!isLoggedin">
   <div class="container">
-    <div class="player" style="align-items: center;">
+    <div class="player" style="align-items: center; margin: 15%;">
       <div class="playerDatas">
         <div class="login-logo">
           <!-- <img src={{logoPath}} alt="Please wait..." /> -->
@@ -20,7 +20,7 @@
               <div class="validation-div">
 
               </div>
-              <div class="input-group">
+              <div class="input-group" style="margin-top: 20px;">
                 <input type="password" class="form-control" placeholder="Password" formControlName="password"
                   maxlength="15" trim>
                 <div class="input-group-append">
@@ -32,12 +32,8 @@
               <div class="validation-div">
 
               </div>
-              <div class="row">
-                <div class="col-8">
-                  <p class="mb-1">
-                    <a [routerLink]="['forgot-password']">Forgot Password?</a>
-                  </p>
-                </div>
+              <div class="row" style="margin-top: 20px;">
+
                 <!-- /.col -->
                 <div class="col-4">
                   <button type="submit" class="btn button-custom-enabled btn-block">Sign In</button>
@@ -68,7 +64,7 @@
         :'INR':'symbol':'.0-0'}}</div>
 
     </div>
-    <div class="player" *ngIf="player">
+    <div class="player" *ngIf="player" style="width: 100%;">
       <div class="playerData">
         <div class="currentPrice">Base price: {{player.basePrice | currency :'INR':'symbol':'.0-0'}}</div>
         <div class="name">{{player.name}}</div>
@@ -131,9 +127,15 @@
         Team Name: {{teamName}}
       </span>
     </div>
-    <div class="player">
+    <div class="player" style="width: 100%;">
       <div class="playerData">
         <div class="card-body" style="width: 100%;">
+          <div *ngIf="players && (!ownPlayer || ownPlayer.length ==0)" class="spec">
+            All player list
+          </div>
+          <div *ngIf="ownPlayer && ownPlayer.length > 0" class="spec">
+            Your team player list
+          </div>
           <table class="table table-bordered" style="width:inherit;">
             <thead>
               <tr class="table-header">
@@ -149,9 +151,24 @@
                 <th>Bowling Rating</th>
               </tr>
             </thead>
-            <tbody>
+            <tbody *ngIf="ownPlayer">
               <tr *ngFor="let item of ownPlayer; let i = index;">
-                <td>{{item.id}}</td>
+                <td>{{i + 1}}</td>
+                <td>{{item.name}}</td>
+                <td>{{item.basePrice | currency :'INR':'symbol':'.0-0'}}</td>
+                <td>{{item.currentPrice | currency :'INR':'symbol':'.0-0'}}
+                </td>
+                <td>{{item.battingStyle}}</td>
+                <td>{{item.bowlingStyle}}</td>
+                <td>{{item.wantToBeCaptain ? 'Yes': 'No'}}</td>
+                <td>{{item.skills}}</td>
+                <td>{{item.battingRating}}</td>
+                <td>{{item.bowlingRating}}</td>
+              </tr>
+            </tbody>
+            <tbody *ngIf="players && (!ownPlayer || ownPlayer.length ==0)">
+              <tr *ngFor="let item of players; let i = index;">
+                <td>{{i + 1}}</td>
                 <td>{{item.name}}</td>
                 <td>{{item.basePrice | currency :'INR':'symbol':'.0-0'}}</td>
                 <td>{{item.currentPrice | currency :'INR':'symbol':'.0-0'}}

@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  apiEndPoint:'http://localhost:4000/api'
+  // apiEndPoint:'http://localhost:4000/api'
+  apiEndPoint:'http://splapi.solutionanalysts.com/api'
 };
 
 /*
